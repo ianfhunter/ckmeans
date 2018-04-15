@@ -1,5 +1,5 @@
 from collections import namedtuple
-from unittest import TestCase
+import unittest
 
 import numpy as np
 import numpy.testing
@@ -17,7 +17,7 @@ from ckmeans import ckmeans
 KmeansData = namedtuple('KmeansData', ['x', 'k'])
 kmeans_data = {}
 
-class TestCkmeans(TestCase):
+class TestCkmeans(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         gaussians = np.concatenate((rand.normal(3, 1/2, 15), rand.normal(23, 1/2, 13)))
@@ -78,3 +78,6 @@ class TestCkmeans(TestCase):
 
     def test_gaussians(self):
         self.run_test('gaussians')
+
+if __name__ == '__main__':
+    unittest.main()
